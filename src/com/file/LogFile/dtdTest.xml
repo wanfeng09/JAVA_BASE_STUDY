@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--引入文档约束类型文件-->
+<!DOCTYPE book SYSTEM "writeDTD.dtd">
+<book>
+    <info>
+        <name>姓名</name>
+        <age>年龄（不能约束具体的数据类型），应该为数字</age>
+        <price>88</price>
+    </info>
+</book>

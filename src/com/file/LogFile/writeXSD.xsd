@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--        targetNamespace：申明约束文档的地址（命名空间）-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="h-schema-test" elementFormDefault="qualified">
+    <element name="book">
+<!--        写子元素-->
+        <complexType>
+<!--            maxOccurs="unbounded": book下子元素可以有任意多个-->
+            <sequence maxOccurs="unbounded">
+                <element name="info">
+<!--                    写子元素-->
+                    <complexType>
+                        <sequence>
+                            <element name="name" type="string"></element>
+                            <element name="age" type="int"></element>
+                            <element name="price" type="double"></element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

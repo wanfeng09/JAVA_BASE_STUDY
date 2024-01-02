@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--注释-->
+<!--  < &lt;   > &gt;  & &amp;  ' &apos;  " &quot; -->
+<!-- CDATA数据区： <![CDATA[ ...内容...]]> 里面内容可以随便写  快捷键CD回车-->
+<Info>
+    <User id="1">
+        <name>测试1</name>
+        <age>18</age>
+        <pass>123456</pass>
+        <data>3 &gt; 2 ; 1 &lt; 2</data>
+    </User>
+    <User id="2">
+        <name>测试1</name>
+        <age>18</age>
+        <pass>123456</pass>
+        <data><![CDATA[3>2 && 6<8]]> </data>
+    </User>
+    <People id="3" name="test" num="100">文字测试</People>
+</Info>

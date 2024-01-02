@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 日志存放路径 -->
+    <property name="log.path" value="D:\java\demo\IOtest\logs" />
+    <!-- 日志输出格式 -->
+    <property name="log.pattern" value="%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20} - [%method,%line] - %msg%n" />
+
+    <!-- console: 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 输出流对象 默认System.out改成System.err-->
+        <target>System.out</target>
+        <encoder>
+            <!-- 格式化输出：%d表示日期 %thread表示线程名 %-5level表示级别从左显示5个字符宽度 %msg：日志消息 %n：换行符-->
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- file是输出方向通向文件的 -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+
+        <file>${log.path}/sys-info.log</file>
+        <!-- 指定日志文件拆分和压缩规则-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <!-- 通过指定压缩文件名称，来确定分割文件的方式-->
+            <fileNamePattern>${log.path}/info-%i-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <!-- 文件拆分大小 -->
+            <maxFileSize>1MB</maxFileSize>
+        </rollingPolicy>
+
+        <!-- 循环政策：基于时间创建日志文件 -->
+        <!-- <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            &lt;!&ndash; 日志文件名格式 &ndash;&gt;
+            <fileNamePattern>${log.path}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+            &lt;!&ndash; 日志最大的历史 60天 &ndash;&gt;
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>-->
+    </appender>
+
+    <root level="ALL">
+        <appender-ref ref="console" />
+        <appender-ref ref="file" />
+    </root>
+</configuration>

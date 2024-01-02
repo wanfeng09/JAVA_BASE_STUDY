@@ -1,0 +1,9 @@
+<!--指定根标签名（子元素多个）-->
+<!ELEMENT book (info+)>
+<!--子元素下指定具体标签名-->
+<!ELEMENT info (name,age,price)>
+<!--标签名下文本自定义-->
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+
